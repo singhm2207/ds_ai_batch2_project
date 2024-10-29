@@ -1,38 +1,147 @@
+/* App.css */
+
+/* General styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f2f5;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Layout styles */
+.site-layout {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+
+.ant-layout-sider {
+  height: 100vh; /* Ensure the sidebar takes the full height of the viewport */
+  background-color: #001529;
+  position: fixed; /* Keep the sidebar fixed */
+  z-index: 1000; /* Ensure it stays on top */
+  display: inline-block; /* Allow the sidebar to size based on content */
+  white-space: nowrap; /* Prevent line breaks in the sidebar */
+}
+
+.ant-layout-content {
+  padding: 20px;
+  margin-left: 200px; /* Adjust margin to account for sidebar width */
+  background-color: #f0f2f5;
+  min-height: 100vh; /* Ensure the content area takes full height */
+  overflow: auto; /* Allow vertical scrolling if content overflows */
+}
+
+/* Logo container styles */
+.logo-container {
+  padding: 20px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.logo-container img {
+  max-width: 80%;
+  height: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Chart container styles */
+.chart-container {
+  padding: 20px;
+  background-color: #fff;
+  margin: 20px 0; /* Margin to separate from other components */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Dashboard card styles */
+.dashboard-card {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Ant Design Menu custom styles */
+.ant-menu {
+  background-color: #001529;
+}
+
+.ant-menu-item-selected {
+  background-color: #1890ff !important; /* Highlight color for selected items */
+}
+
+.ant-menu-item a {
+  color: #fff !important;
+}
+
+.ant-menu-submenu-title {
+  color: #fff !important;
+}
+
+.ant-menu-dark .ant-menu-inline.ant-menu-sub {
+  background-color: #002140;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .ant-layout-sider {
+    width: 100%;
+    position: relative; /* Reset position on smaller screens */
+    height: auto; /* Reset height on smaller screens */
   }
-  to {
-    transform: rotate(360deg);
+  
+  .ant-layout-content {
+    margin-left: 0; /* Reset margin for content */
   }
+}
+
+/* Chart-specific styles to ensure proper alignment */
+.chart-container {
+  width: 100%; /* Make sure chart containers take full width */
+  max-width: 800px; /* Set a max width for better responsiveness */
+  margin: 20px auto; /* Center the charts horizontally */
+}
+
+.dashboard-card {
+  width: 100%; /* Ensure cards fill their container */
+}
+
+/* Dashboard specific styles */
+.dashboard-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow charts to wrap onto multiple lines */
+  justify-content: space-between; /* Evenly space the charts */
+  padding: 20px;
+  margin: 20px 0; /* Margin to separate from other components */
+}
+
+.dashboard-card {
+  flex: 1 1 calc(30% - 20px); /* Allow cards to take up to 30% of the width, minus margins */
+  margin: 10px; /* Margin around each card */
+  padding: 20px;
+  background-color: #fff; /* White background for cards */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust heading styles within dashboard */
+.dashboard-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Ensure charts fit well within their cards */
+.chart-container {
+  width: 100%; /* Full width for the chart container */
 }
