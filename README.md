@@ -1,9 +1,5 @@
-Here's an updated **README.md** file that includes instructions for setting up the backend as well:
-
 ```markdown
 # Electricity Theft Analysis Dashboard
-
-This project is a web application built using React and TypeScript. It features various charts to analyze electricity theft, including bar charts, line charts, pie charts, and more. The application uses Ant Design for styling and layout.
 
 ## Table of Contents
 
@@ -109,14 +105,3 @@ ds_ai_batch2_project/
 │   ├── server.js
 └── README.md
 ```
-
-## License
-
-This project is licensed under the MIT License.
-```
-
-### Instructions for Use
-- Update the repository URL and any other specifics that pertain to your project.
-- Adjust the backend installation and usage instructions based on your actual backend implementation if necessary.
-
-This README now provides clear instructions for setting up both the frontend and backend of your project. Let me know if you need any further modifications!
