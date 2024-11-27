@@ -63,7 +63,7 @@ const SideMenu: React.FC = () => {
   const selectedKey = getMenuKeyFromPath(location.pathname);
 
   return (
-    <Sider collapsible>
+    <Sider collapsible style={{position: "relative", height: "auto"}}>
       <div className="logo-container">
         <div className="logo">
           <img src="/images/logo.png" alt="Brand 1 Logo" className="brand-logo" />
@@ -71,7 +71,7 @@ const SideMenu: React.FC = () => {
       </div>
 
       <Menu
-        theme="dark"
+        theme="light"
         mode="inline"
         selectedKeys={[selectedKey]}
         openKeys={openKeys}

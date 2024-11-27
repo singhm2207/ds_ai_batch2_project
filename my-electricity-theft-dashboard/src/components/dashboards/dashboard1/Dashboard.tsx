@@ -6,7 +6,7 @@ import PieChart from '../../charts/PieChart';
 
 const Dashboard: React.FC = () => {
   return (
-    <div className="dashboard-container">
+   <div className="dashboard-container">
       <div className="dashboard-card">
         <h3>Monthly Power Loss</h3>
         <BarChart />
@@ -20,7 +20,7 @@ const Dashboard: React.FC = () => {
         <LineChart />
       </div>
       <div className="dashboard-card">
-        <h3>Revenue Loss Breakdown</h3>
+        <h3>R evenue Loss Breakdown</h3>
         <PieChart />
       </div>
     </div>

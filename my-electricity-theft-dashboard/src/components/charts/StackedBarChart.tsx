@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
+import axios from 'axios';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,26 +10,38 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import { stackedBarChartURL as apiUrl } from '../../common/constants'; // Ensure your API URL is correctly set
 
 // Register required components for Chart.js
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const StackedBarChart: React.FC = () => {
-  const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-    datasets: [
-      {
-        label: 'Dataset 1',
-        data: [65, 59, 80, 81, 56, 55],
-        backgroundColor: 'rgba(75,192,192,0.6)', // Color for Dataset 1
-      },
-      {
-        label: 'Dataset 2',
-        data: [28, 48, 40, 19, 86, 27],
-        backgroundColor: 'rgba(255,99,132,0.6)', // Color for Dataset 2
-      },
-    ],
-  };
+  const [chartData, setChartData] = useState<any | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Fetch data from the API
+    axios
+      .get(`${apiUrl}`) // Append specific endpoint
+      .then((response) => {
+        const { data } = response;
+        // Transform API response into the required chart.js format
+        const formattedData = {
+          labels: data.labels, // Array of labels for the x-axis
+          datasets: data.datasets.map((dataset: any) => ({
+            label: dataset.label, // Dataset label
+            data: dataset.values, // Data points for the dataset
+            backgroundColor: dataset.backgroundColor, // Color for the dataset
+          })),
+        };
+        setChartData(formattedData);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching chart data:', error);
+        setLoading(false);
+      });
+  }, []);
 
   const options = {
     scales: {
@@ -42,10 +55,18 @@ const StackedBarChart: React.FC = () => {
     },
   };
 
+  if (loading) {
+    return <div>Loading chart...</div>;
+  }
+
+  if (!chartData) {
+    return <div>Error loading data. Please try again later.</div>;
+  }
+
   return (
     <div className="chart-container">
       <h2>Stacked Bar Chart</h2>
-      <Bar data={data} options={options} />
+      <Bar data={chartData} options={options} />
     </div>
   );
 };
