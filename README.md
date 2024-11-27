@@ -324,5 +324,3 @@ Developers can extend the provided charts by:
 
 - **For API Developers**: Use the provided examples to implement required APIs.
 - **For UI Developers**: Import the components and use them in JSX as shown in the guide.
-
-This guide should help anyone, regardless of their prior experience, to integrate these charts seamlessly into their applications.
