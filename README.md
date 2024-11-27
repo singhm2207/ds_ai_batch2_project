@@ -114,25 +114,7 @@ This guide provides an exhaustive overview of how to use the provided chart comp
 
 ### **1. Understanding the Folder Structure**
 
-Assume the following folder structure in your project:
-
-```
-src/
-├── components/
-│   ├── charts/
-│   │   ├── AreaChart.tsx
-│   │   ├── BarChart.tsx
-│   │   ├── DoughnutChart.tsx
-│   │   ├── LineChart.tsx
-│   │   ├── PolarAreaChart.tsx
-│   │   ├── RadarChart.tsx
-│   │   ├── ScatterChart.tsx
-│   │   ├── StackedBarChart.tsx
-│   │   └── HorizontalBarChart.tsx
-├── common/
-│   ├── constants.ts
-│   └── api.ts
-```
+Check above
 
 ### **2. Setup Prerequisites**
 
