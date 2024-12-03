@@ -38,9 +38,9 @@
    cd ds_ai_batch2_project
    ```
 
-2. **Navigate to the client directory:**
+2. **Navigate to the my-electricity-theft-dashboard directory:**
    ```bash
-   cd client
+   cd my-electricity-theft-dashboard
    ```
 
 3. **Install the necessary dependencies for the frontend:**
@@ -91,7 +91,7 @@ Once you clone the repository, all the necessary Docker files (including `Docker
 
 ### Steps for Cloners Using Docker
 
-Here’s a more streamlined process for cloning the repo and running the Docker containers:
+Here’s streamlined process for cloning the repo and running the Docker containers:
 
 ### 1. **Clone the repository:**
 
@@ -246,6 +246,8 @@ Most charts expect a response with the following structure:
   ]
 }
 ```
+
+Please check server.js to see the expected format of the data required by every chart.
 
 ---
 
