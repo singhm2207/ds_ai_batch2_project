@@ -82,6 +82,48 @@
    http://localhost:7200/api/data
    ```
 
+### Docker Setup 
+Once you clone the repository, all the necessary Docker files (including `Dockerfile` for both frontend and backend, and `docker-compose.yml`) are already included. By following the Docker steps, you can:
+
+1. **Build the Docker images** (for both the frontend and backend).
+2. **Run the containers** (which will automatically install the dependencies, build the React app, and start the servers).
+3. **Access the app** (both frontend and backend) without needing to configure anything manually.
+
+### Steps for Cloners Using Docker
+
+Here’s a more streamlined process for cloning the repo and running the Docker containers:
+
+### 1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/singhm2207/ds_ai_batch2_project.git
+   cd ds_ai_batch2_project
+   ```
+
+### 2. **Build and Run the Docker Containers:**
+
+From the project root (where the `docker-compose.yml` file is located), they only need to run the following command:
+
+```bash
+docker-compose up --build
+```
+
+This single command will:
+
+- Build both the frontend and backend images using the `Dockerfile` for each service.
+- Start both the frontend and backend containers as specified in the `docker-compose.yml` file.
+- Expose the frontend on `http://localhost:3000` and the backend on `http://localhost:7200`.
+
+### 3. **Stopping the Containers:**
+
+To stop the running containers, they can run:
+
+```bash
+docker-compose down
+```
+
+This will stop and remove the containers, but it doesn't affect the images or other resources.
+
 ## Usage
 
 - Once the application is running, you will see the dashboard with various charts and a left navigation menu.
@@ -91,26 +133,25 @@
 
 ```
 ds_ai_batch2_project/
-├── client/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── charts/
-│   │   │   ├── dashboards/
-│   │   │   └── App.tsx
-│   │   ├── App.css
-│   │   └── index.tsx
-│   ├── public/
-│   └── package.json
 ├── backend/
-│   ├── server.js
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── Dockerfile
+│   └── server.js
+├── my-electricity-theft-dashboard/
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── public/  (React app)
+│   ├── src/     (React app)
+│   ├── .gitignore
+│   ├── tsconfig.json
+│   └── README.md
+├── docker-compose.yml
 └── README.md
 ```
 
 ### **Comprehensive Guide: Using Prebuilt Chart Components**
 
-This guide provides an exhaustive overview of how to use the provided chart components in your project. The goal is to help developers quickly integrate these charts, either by writing the necessary APIs or by directly importing and using them.
-
----
 
 ### **1. Understanding the Folder Structure**
 
@@ -131,7 +172,7 @@ npm install react-chartjs-2 chart.js axios
 Create a `constants.ts` file in the `common` folder to store the base URL for APIs:
 
 ```typescript
-export const apiUrl = 'http://localhost:5000'; // Replace with your API base URL
+export const apiUrl = 'http://localhost:7200'; // Replace with your API base URL
 ```
 
 ---
@@ -286,10 +327,6 @@ export default Dashboard;
 Developers can use the provided server examples as templates. Below is a basic template for creating a chart API:
 
 ```javascript
-const express = require('express');
-const app = express();
-const PORT = 5000;
-
 app.get('/api/sample-chart-data', (req, res) => {
   res.json({
     labels: ['January', 'February', 'March', 'April'],
@@ -305,22 +342,11 @@ app.get('/api/sample-chart-data', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
 ```
 
 ---
 
-### **8. Extending the Charts**
-
-Developers can extend the provided charts by:
-1. Adding more datasets to the `datasets` array.
-2. Customizing the `options` object for advanced configurations (e.g., tooltips, animations, etc.).
-
----
-
-### **9. Next Steps**
+### **8. Next Steps**
 
 - **For API Developers**: Use the provided examples to implement required APIs.
 - **For UI Developers**: Import the components and use them in JSX as shown in the guide.
